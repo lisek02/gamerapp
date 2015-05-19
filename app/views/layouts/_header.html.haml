@@ -1,0 +1,21 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid.navbar
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %ul.nav.navbar-nav
+        %li
+          %h3= link_to "Home", '/'
+        %li
+          %h3= link_to "Games", '#'
+        %li
+          %h3= link_to "Gamers", '#'
+
+.jumbotron.text-center
+  %h1 Choose you favourite games!
+  %h2 Be the one with the biggest games collection

@@ -17,15 +17,28 @@
 @import "bootstrap";
 
 $background-color: #222;
-$headers-color: #67AEB3;
+$light-blue: #67AEB3;
+$light-pink: #DF828A;
 
 body {
 	background-color: $background-color;
 	color: #cacaca;
 }
 
+a {
+	color: $light-blue;
+	text-decoration: none!important;
+	background-color: transparent!important;
+	&:visited {
+		color: inherit;
+	}
+	&:hover {
+		color: $light-pink;
+	}
+}
+
 h1, h2, h3 {
-	color: $headers-color;
+	color: $light-blue;
 	font-family: 'Lobster';
 }
 
@@ -39,5 +52,34 @@ h1, h2, h3 {
 
 	h2 {
 		color: $background-color;
+	}
+}
+
+.navbar-nav {
+	width: 100%;
+	text-align: center;
+	li {
+		float: none;
+		display: inline-block;
+		margin: 0 20px;
+	}
+}
+
+.rectangle {
+	background-color: #303030;
+	border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;
+
+	.rectangle-header {
+		background-color: #303030;
+		padding: 10px;
+		border-radius: inherit;
+		-moz-border-radius: inherit;
+		-webkit-border-radius: inherit;
+	}
+
+	.rectangle-body {
+		padding: 10px 20px;
 	}
 }

@@ -1,16 +1,17 @@
-%h1= "Listing games"
-%table
-  %thead
-    %tr
-      %th= "Title"
-      %th= "Rate"
-  %tbody
-    - @games.each do |game|
-      %tr
-        %td= game.title
-        %td= game.rate
-        %td= link_to 'Show', game
-        %td= link_to 'Edit', edit_game_path(game)
-        %td= link_to 'Destroy', game, method: :delete, data: { confrim: 'Are you sure?' }
+.rectangle
+  .rectangle-header
+    %h1= "Most recent games"
+  .rectangle-body
+    %table.table.table-condensed
+      %tbody
+        - @games.each do |game|
+          %tr
+            %td= game.title
+            %td= game.rate
+            - if (current_user && current_user.admin?)
+              %td= link_to 'Show', game
+              %td= link_to 'Edit', edit_game_path(game)
+              %td= link_to 'Destroy', game, method: :delete, data: { confrim: 'Are you sure?' }
 
-=link_to 'New Game', new_game_path
+    - if (current_user && current_user.admin?)
+      =link_to 'New Game', new_game_path

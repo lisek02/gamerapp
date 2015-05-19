@@ -12,9 +12,14 @@
         %li
           %h3= link_to "Home", '/'
         %li
-          %h3= link_to "Games", '#'
+          %h3= link_to "Games", games_path
         %li
-          %h3= link_to "Gamers", '#'
+          %h3= link_to "Gamers", users_index_path
+        %li
+          -if user_signed_in?
+            %h3= link_to('Logout', destroy_user_session_path, :method => :delete)
+          -else
+            %h3= link_to('Login', new_user_session_path)
 
 .jumbotron.text-center
   %h1 Choose you favourite games!

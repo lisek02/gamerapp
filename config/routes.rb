@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/index'
+
   resources :games
   root 'games#index'
+
+  resources :users, only: [:show, :index]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'

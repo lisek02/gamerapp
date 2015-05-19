@@ -1,2 +1,10 @@
-- @users.each do |user|
-	%p= user.email
+.rectangle
+  .rectangle-header
+    %h1= "List of all users"
+  .rectangle-body
+    %table.table.table-condensed
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.email
+            %td= link_to 'Show', user

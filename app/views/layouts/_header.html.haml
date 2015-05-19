@@ -15,12 +15,16 @@
           %h3= link_to "Games", games_path
         %li
           %h3= link_to "Gamers", users_index_path
-        %li
-          -if user_signed_in?
+        -if user_signed_in?
+          %li
+            %h3= link_to "Profile", current_user
+          %li 
             %h3= link_to('Logout', destroy_user_session_path, :method => :delete)
-          -else
+        -else
+          %li
             %h3= link_to('Login', new_user_session_path)
 
 .jumbotron.text-center
   %h1 Choose you favourite games!
   %h2 Be the one with the biggest games collection
+  %span.glyphicon.glyphicon-chevron-down

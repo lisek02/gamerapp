@@ -42,27 +42,41 @@ h1, h2, h3 {
 	font-family: 'Lobster';
 }
 
+.navbar {
+	margin-bottom: 10px;
+	.navbar-nav {
+		width: 100%;
+		text-align: center;
+		li {
+			float: none;
+			display: inline-block;
+			margin: 0 20px;
+		}
+	}
+}
+
 .jumbotron {
-	height: 500px;
+	height: 650px;
 	background-image: url("background-image.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	color: $background-color;
 	padding-top: 180px;
+	position: relative;
 
 	h2 {
 		color: $background-color;
 	}
+
+	.glyphicon {
+		position: absolute;
+		top: 80%;
+		left: 50%;
+	}
 }
 
-.navbar-nav {
-	width: 100%;
-	text-align: center;
-	li {
-		float: none;
-		display: inline-block;
-		margin: 0 20px;
-	}
+.container {
+	padding-bottom: 100px;
 }
 
 .rectangle {
@@ -81,5 +95,27 @@ h1, h2, h3 {
 
 	.rectangle-body {
 		padding: 10px 20px;
+	}
+}
+
+.footer {
+	height: 250px;
+	background-image: url("background-image.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: $background-color;
+	position: relative;
+
+	ul {
+		text-align: center;
+		padding-top: 80px;
+
+		li {
+			margin: 0 20px;
+
+			img {
+				width: 80px;
+			}
+		}
 	}
 }

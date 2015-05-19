@@ -1,6 +1,6 @@
 .rectangle
   .rectangle-header
-    %h1= "Most recent games"
+    %h1= "List of all games"
   .rectangle-body
     %table.table.table-condensed
       %tbody
@@ -8,8 +8,10 @@
           %tr
             %td= game.title
             %td= game.rate
+            %td= link_to 'Show', game
+            - if (current_user)
+              %td= link_to 'Add', '#'
             - if (current_user && current_user.admin?)
-              %td= link_to 'Show', game
               %td= link_to 'Edit', edit_game_path(game)
               %td= link_to 'Destroy', game, method: :delete, data: { confrim: 'Are you sure?' }
 

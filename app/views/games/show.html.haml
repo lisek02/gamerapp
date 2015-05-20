@@ -1,15 +1,29 @@
-%p#notice= notice
-%p
-	%strong= "Title"
-	= @game.title
-%p
-	%strong= "Rate"
-	= @game.rate
+.rectangle
+  .rectangle-header
+    %h1= "Games details"
+  .rectangle-body
+    %p#notice= notice
+    %p
+      %strong= "Title:"
+      = @game.title
+    %p
+      %strong= "Rate:"
+      = @game.rate
 
-- if (current_user && current_user.admin?)
-	= link_to 'Edit', edit_game_path(@game)
+    %p
+      %strong= "Users owning:"
 
-- if (current_user)
-	%p= link_to 'Add', '#'
+      %table.table.table-condensed
+        %tbody
+          - @game.users.each do |user|
+            %tr
+              %td= user.email
+              %td= link_to 'Show user', user_path(user)
 
-%p= link_to 'Back', games_path
+    - if (current_user && current_user.admin?)
+      %p= link_to 'Edit', edit_game_path(@game)
+      %p= link_to 'Add', '#'
+      
+
+    %p= link_to 'Back', games_path
+

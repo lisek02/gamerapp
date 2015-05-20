@@ -1,1 +1,11 @@
-%p= @user.email
+.rectangle
+  .rectangle-header
+    %h1= "#{ @user.email }'s games"
+  .rectangle-body
+    %table.table.table-condensed
+      %tbody
+        - @user.games.each do |game|
+          %tr
+            %td= game.title
+            %td= game.rate
+            %td= link_to "Show", game_path(game)

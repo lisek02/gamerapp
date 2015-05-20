@@ -24,3 +24,15 @@ end
 	Game.create!(title: title,
 							rate: rate)
 end
+
+users = User.order(:created_at).take(10)
+users.each do |user|
+	number = (rand(25)) + 1
+	4.times do |i|
+		number2 = (number - 3*i) % 25
+		if number2 != 0
+			game = Game.find(number2)
+			user.games << game
+		end		
+	end
+end

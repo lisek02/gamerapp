@@ -34,17 +34,6 @@ ActiveRecord::Schema.define(version: 20150520124254) do
   add_index "ownerships", ["user_id", "game_id"], name: "index_ownerships_on_user_id_and_game_id", unique: true, using: :btree
   add_index "ownerships", ["user_id"], name: "index_ownerships_on_user_id", using: :btree
 
-  create_table "possessions", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "possessions", ["game_id"], name: "index_possessions_on_game_id", using: :btree
-  add_index "possessions", ["user_id", "game_id"], name: "index_possessions_on_user_id_and_game_id", unique: true, using: :btree
-  add_index "possessions", ["user_id"], name: "index_possessions_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false

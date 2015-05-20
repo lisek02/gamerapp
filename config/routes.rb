@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get 'users/index'
   root 'games#index'
 
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   resources :games do
     member do
       get :ownerships
@@ -13,11 +18,6 @@ Rails.application.routes.draw do
       get :ownerships
     end
   end
-
-
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
 
   resources :users, only: [:show, :index]
 
